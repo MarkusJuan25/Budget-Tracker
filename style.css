@@ -1,0 +1,156 @@
+:root {
+  --bg: #f4f6fb;
+  --card: #fff;
+  --text: #0f172a;
+  --muted: #64748b;
+  --primary: #4f46e5;
+  --income: #16a34a;
+  --expense: #dc2626;
+}
+
+body.dark {
+  --bg: #0f172a;
+  --card: #020617;
+  --text: #e5e7eb;
+  --muted: #94a3b8;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background: var(--bg);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--text);
+  transition: 0.3s;
+}
+
+.app {
+  width: 100%;
+  max-width: 480px;
+  background: var(--card);
+  padding: 20px;
+  border-radius: 22px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+  animation: float 0.8s ease;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top-controls {
+  display: flex;
+  gap: 6px;
+}
+
+select, input, button {
+  padding: 9px;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+  background: transparent;
+  color: var(--text);
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: var(--primary);
+  color: white;
+}
+
+.summary {
+  display: flex;
+  gap: 10px;
+  margin: 12px 0;
+}
+
+.box {
+  flex: 1;
+  background: rgba(100,116,139,0.1);
+  border-radius: 14px;
+  padding: 12px;
+  text-align: center;
+  transition: 0.2s;
+}
+
+.box:hover { transform: translateY(-3px); }
+
+.box span {
+  display: block;
+  margin-top: 5px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.income-box span { color: var(--income); }
+.expense-box span { color: var(--expense); }
+.balance-box span { color: var(--primary); }
+
+.actions {
+  display: flex;
+  gap: 8px;
+  margin: 10px 0;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 10px;
+  animation: fade 0.4s ease;
+}
+
+.form button { grid-column: span 2; }
+
+.hidden { display: none; }
+
+ul { list-style: none; padding: 0; }
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(100,116,139,0.1);
+  padding: 10px;
+  border-radius: 12px;
+  margin-top: 8px;
+  animation: fade 0.3s ease;
+}
+
+.tag {
+  background: var(--primary);
+  color: white;
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 6px;
+  margin-left: 5px;
+}
+
+.plus { border-left: 5px solid var(--income); }
+.minus { border-left: 5px solid var(--expense); }
+
+.delete-btn {
+  background: transparent;
+  font-size: 16px;
+}
+
+@keyframes fade {
+  from {opacity:0; transform:translateY(5px);}
+  to {opacity:1; transform:translateY(0);}
+}
+
+@keyframes float {
+  from {opacity:0; transform:scale(.95);}
+  to {opacity:1; transform:scale(1);}
+}
+
+@media(max-width:480px){
+  .summary { flex-direction: column; }
+  .form { grid-template-columns: 1fr; }
+  .form button { grid-column: span 1; }
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Professional Budget Tracker</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app fade-in">
+  <header>
+    <h1>💼 Budget Tracker Pro</h1>
+    <div class="top-controls">
+      <select id="monthFilter"></select>
+      <button id="darkToggle">🌙</button>
+    </div>
+  </header>
+
+  <div class="summary">
+    <div class="box income-box">Income <span id="income">₱0</span></div>
+    <div class="box expense-box">Expense <span id="expense">₱0</span></div>
+    <div class="box balance-box">Balance <span id="balance">₱0</span></div>
+  </div>
+
+  <canvas id="chart" height="140"></canvas>
+
+  <div class="actions">
+    <button id="toggleForm">➕ Add Transaction</button>
+    <button id="exportBtn">📥 Export Excel</button>
+  </div>
+
+  <div class="form hidden" id="form">
+    <input type="text" id="text" placeholder="Description">
+    <input type="number" id="amount" placeholder="Amount">
+    <select id="category">
+      <option>Food</option>
+      <option>Transport</option>
+      <option>Bills</option>
+      <option>Shopping</option>
+      <option>Salary</option>
+      <option>Others</option>
+    </select>
+    <input type="month" id="month" value="">
+    <select id="type">
+      <option value="income">Income</option>
+      <option value="expense">Expense</option>
+    </select>
+    <button id="addBtn">Save</button>
+  </div>
+
+  <ul id="list"></ul>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
